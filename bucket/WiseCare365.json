@@ -8,8 +8,21 @@
     "innosetup": true,
     "installer": {
         "script": [
-            "$file = 'config.ini'",
-            "if (-not (Test-Path \"$persist_dir\\$file\")) { Set-Content \"$dir\\$file\" '[General]', 'checkNewVer=3' -Encoding Ascii }"
+            "if (-not (Test-Path \"$persist_dir\\config.ini\")) { ",
+            "  New-Item -Force -Path \"$dir\\config.ini\" | Out-Null",
+            "  echo \"[General]\" >> \"$dir\\config.ini\"",
+            "  echo \"checkNewVer=3\" >> \"$dir\\config.ini\"",
+            "  echo \"UpdateMode=3\" >> \"$dir\\config.ini\"",
+            "  echo \"BootStartup=0\" >> \"$dir\\config.ini\"",
+            "  echo \"StartBooster=0\" >> \"$dir\\config.ini\"",
+            "  echo \"TurboCheck=0\" >> \"$dir\\config.ini\"",
+            "  echo \"ContextMenuFileShred=0\" >> \"$dir\\config.ini\"",
+            " }",
+            "if (-not (Test-Path \"$persist_dir\\config_tray.ini\")) { ",
+            "  New-Item -Force -Path \"$dir\\config_tray.ini\" | Out-Null",
+            "  echo \"[General]\" >> \"$dir\\config_tray.ini\"",
+            "  echo \"ShowFloatWnd=0\" >> \"$dir\\config_tray.ini\"",
+            " }"
         ]
     },
     "shortcuts": [
@@ -20,6 +33,7 @@
     ],
     "persist": [
         "config.ini",
+        "config_tray.ini",
         "DefragOptions.ini"
     ],
     "checkver": {
