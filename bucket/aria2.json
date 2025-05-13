@@ -1,12 +1,12 @@
 {
-    "version": "1.37.0-20250512",
+    "version": "1.37.0-20250513",
     "description": "aria2 witch ghproxy support",
     "homepage": "https://github.com/scoop-plus/aria2",
     "license": "OpenSSL",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/scoop-plus/aria2/releases/download/v1.37.0-20250512/release.zip",
-            "hash": "69ed6529463b430a1bbbc2a268494609a7a902784b5db8ea7bbe4a600a2f5db7"
+            "url": "https://github.com/scoop-plus/aria2/releases/download/v1.37.0-20250513/release.zip",
+            "hash": "eda37bd5a72d9e83d614ae61e94d5dc3a18f9b30bee17dd6dccb02dd5dcbeec6"
         }
     },
     "bin": [
