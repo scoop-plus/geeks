@@ -16,6 +16,7 @@
             "  echo \"BootStartup=0\" >> \"$dir\\config.ini\"",
             "  echo \"StartBooster=0\" >> \"$dir\\config.ini\"",
             "  echo \"TurboCheck=0\" >> \"$dir\\config.ini\"",
+            "  echo \"CloseTray=1\" >> \"$dir\\config.ini\"",
             "  echo \"ContextMenuFileShred=0\" >> \"$dir\\config.ini\"",
             " }",
             "if (-not (Test-Path \"$persist_dir\\config_tray.ini\")) { ",
