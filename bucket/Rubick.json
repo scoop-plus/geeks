@@ -1,0 +1,24 @@
+{
+    "version": "4.3.2",
+    "description": "基于 electron 的开源工具箱，自由集成丰富插件。",
+    "homepage": "https://github.com/rubickCenter/rubick",
+    "license": "MIT",
+    "url": "https://github.com/rubickCenter/rubick/releases/download/v4.3.2/rubick-Setup-4.3.2.exe#/rubick.7z",
+    "hash": "80e3b15abdedcb323ba19fc403ece99126d0093a8216063a0bbcbb725059ee2b",
+    "shortcuts": [
+        [
+            "rubick.exe",
+            "Rubick"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/rubickCenter/rubick"
+    },
+    "pre_install": [
+        "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
+        "Remove-Item \"$dir\\`$*\" -Force -Recurse"
+    ],
+    "autoupdate": {
+        "url": "https://github.com/rubickCenter/rubick/releases/download/v$version/rubick-Setup-$version.exe#/rubick.7z"
+    }
+}

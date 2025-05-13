@@ -1,0 +1,34 @@
+{
+    "version": "2.9.16",
+    "description": "资产测绘及实战化漏洞扫描工具",
+    "homepage": "https://gobysec.net/",
+    "license": "https://gobysec.net/faq",
+    "url": "https://gobies.org/download/release?type=full_url&id=291#/goby-2.9.16-Community.zip",
+    "hash": "522166b648f6c35c1c59e08728c33cca05dfb9b070bc99cf4c27ab6ca202fcdc",
+    "extract_dir": "goby-win-x64-2.9.16",
+    "bin": [
+        [
+            "golib/goby-cmd.exe",
+            "goby"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "Goby.exe",
+            "Goby"
+        ]
+    ],
+    "persist": [
+        "data",
+        "config",
+        "extensions"
+    ],
+    "checkver": {
+        "url": "https://gobysec.net/api/versions",
+        "regex": "\"title\":\"(?<version>[^\"]+)\",\"versionType\":\"(?<type>[^\"]+)\",\"content\":\"(?<changeLog>.*?)\",\"url\":\"(?<path>[^\"]+)release(?<params>[^\"]+)"
+    },
+    "autoupdate": {
+        "url": "https://gobies.org/download/release$matchParams#/goby-$version-$matchType.zip",
+        "extract_dir": "goby-win-x64-$version"
+    }
+}
