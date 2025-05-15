@@ -4,7 +4,7 @@
 [![Tests](https://github.com/scoop-plus/geeks/actions/workflows/ci.yml/badge.svg)](https://github.com/scoop-plus/geeks/actions/workflows/ci.yml)
 [![Excavator](https://github.com/scoop-plus/geeks/actions/workflows/excavator.yml/badge.svg)](https://github.com/scoop-plus/geeks/actions/workflows/excavator.yml)
 
-Geeks bucket for [Scoop](https://github.com/scoop-plus/repo)
+Geeks bucket for Scoop
 
 ## 食用方法
 
