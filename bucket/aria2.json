@@ -6,7 +6,7 @@
     "architecture": {
         "64bit": {
             "url": "https://github.com/scoop-plus/aria2/releases/download/v1.37.0-20250515/release.zip",
-            "hash": "12f1101db9cf10656de9dd7a208257b0425913dfe1f5fac5f461d8f3fbba58cc"
+            "hash": "f30d62d2ec6e2666c5991ed895fadb4c9d0f596bd2b4b20879a12b1827a5e321"
         }
     },
     "bin": [
@@ -33,6 +33,9 @@
             "64bit": {
                 "url": "https://github.com/scoop-plus/aria2/releases/download/v$version/release.zip"
             }
+        },
+        "hash": {
+            "url": "$url.sha256"
         }
     }
 }
