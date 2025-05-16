@@ -1,10 +1,10 @@
 {
-    "version": "1.37.0-20250515",
+    "version": "1.37.0-20250516",
     "description": "aria2 witch ghproxy support",
-    "homepage": "https://github.com/scoop-plus/aria2",
+    "homepage": "https://gitea.com/scoop-plus/aria2",
     "license": "OpenSSL",
-    "url": "https://github.com/scoop-plus/aria2/releases/download/v1.37.0-20250515/release.zip",
-    "hash": "f30d62d2ec6e2666c5991ed895fadb4c9d0f596bd2b4b20879a12b1827a5e321",
+    "url": "https://gitea.com/scoop-plus/aria2/releases/download/v1.37.0-20250516/release.zip",
+    "hash": "d393024679acd948c0b38d311c0080ffbf5ccb3099983e3290f6213af660ae86",
     "bin": [
         "aria2c.exe",
         [
@@ -18,11 +18,11 @@
     ],
     "persist": "ghproxy.json",
     "checkver": {
-        "url": "https://api.github.com/repos/scoop-plus/aria2/releases/latest",
-        "regex": "\"tag_name\":\"v(.+?)\""
+        "url": "https://gitea.com/scoop-plus/aria2/releases.rss",
+        "regex": "/releases/tag/v([^<]+)</guid>"
     },
     "autoupdate": {
-        "url": "https://github.com/scoop-plus/aria2/releases/download/v$version/release.zip",
+        "url": "https://gitea.com/scoop-plus/aria2/releases/download/v$version/release.zip",
         "hash": {
             "url": "$url.sha256"
         }
