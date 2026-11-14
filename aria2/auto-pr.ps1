@@ -4,22 +4,22 @@
 #>
 param(
     [ValidateScript( {
-        if (!($_ -match '^(.*)\/(.*):(.*)$')) {
-            throw 'Upstream must be in this format: <user>/<repo>:<branch>'
-        }
-        $true
-    })]
-    [String] $Upstream = 'ScoopPlus/Geeks:main',
+            if (!($_ -match '^(.*)\/(.*):(.*)$')) {
+                throw 'Upstream must be in this format: <user>/<repo>:<branch>'
+            }
+            $true
+        })]
+    [String] $Upstream = 'scoop-plus/geeks:main',
     [String] $OriginBranch = 'main',
     [String] $App = '*',
     [String] $CommitMessageFormat = '<app>: Update to version <version>',
     [ValidateScript( {
-        if ($_ -and !(Test-Path $_ -Type Container)) {
-            throw "$_ is not a directory!"
-        } else {
-            $true
-        }
-    })]
+            if ($_ -and !(Test-Path $_ -Type Container)) {
+                throw "$_ is not a directory!"
+            } else {
+                $true
+            }
+        })]
     [String] $Dir,
     [Switch] $Push,
     [Switch] $Request,
@@ -169,7 +169,7 @@ hub diff --name-only | ForEach-Object {
         return
     }
     $version = $json.version
-    $CommitMessage = $CommitMessageFormat -replace '<app>',$app -replace '<version>',$version
+    $CommitMessage = $CommitMessageFormat -replace '<app>', $app -replace '<version>', $version
     if ($Push) {
         Write-Host "Creating update $app ($version) ..." -ForegroundColor DarkCyan
         execute "hub add $manifest"

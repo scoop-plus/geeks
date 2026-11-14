@@ -2,8 +2,8 @@
 
 <!-- badge -->
 <!--
-[![Tests](https://github.com/ScoopPlus/geeks/actions/workflows/ci.yml/badge.svg)](https://github.com/ScoopPlus/geeks/actions/workflows/ci.yml)
-[![Excavator](https://github.com/ScoopPlus/geeks/actions/workflows/excavator.yml/badge.svg)](https://github.com/ScoopPlus/geeks/actions/workflows/excavator.yml)
+[![Tests](https://github.com/scoop-plus/geeks/actions/workflows/ci.yml/badge.svg)](https://github.com/scoop-plus/geeks/actions/workflows/ci.yml)
+[![Excavator](https://github.com/scoop-plus/geeks/actions/workflows/excavator.yml/badge.svg)](https://github.com/scoop-plus/geeks/actions/workflows/excavator.yml)
 -->
 
 Geeks bucket for Scoop
@@ -14,7 +14,7 @@ Geeks bucket for Scoop
 # 使用VCDN
 scoop bucket add geeks https://vcdn.qzz.io/scoop/geeks
 # 使用Github
-scoop bucket add geeks https://github.com/ScoopPlus/Geeks
+scoop bucket add geeks https://github.com/scoop-plus/geeks
 ```
 
 ### Make a new manifests
