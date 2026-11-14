@@ -1,0 +1,36 @@
+{
+    "version": "1.7.4",
+    "description": "易有云:手机相册备份，电脑数据同步，统一管理所有设备数据",
+    "homepage": "https://www.linkease.com",
+    "license": "Unlicense",
+    "architecture": {
+        "64bit": {
+            "url": "https://fw.koolcenter.com/binary/LinkEase/Client/LinkEaseSetup.exe#/LinkEase.7z",
+            "hash": "92e3b8f4a75e3e24afa3bff14ed93259a8039aefa834c10adbbc69472db1bbdb"
+        },
+        "32bit": {
+            "url": "https://fw.koolcenter.com/binary/LinkEase/Client/LinkEaseSetupWin32.exe#/LinkEase.7z",
+            "hash": "4fb20729b75757827728090020864b556bb5c28eb7948ba2bd06114ea24bb8df"
+        }
+    },
+    "shortcuts": [
+        [
+            "LinkEase.exe",
+            "易有云"
+        ]
+    ],
+    "checkver": {
+        "url": "https://www.linkease.com/downloads/client-version/",
+        "regex": "\"version\":\"([\\d\\.]+)\",\"prop\":\"win\""
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://fw.koolcenter.com/binary/LinkEase/Client/LinkEaseSetup.exe#/LinkEase.7z"
+            },
+            "32bit": {
+                "url": "https://fw.koolcenter.com/binary/LinkEase/Client/LinkEaseSetupWin32.exe#/LinkEase.7z"
+            }
+        }
+    }
+}

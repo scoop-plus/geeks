@@ -1,0 +1,28 @@
+{
+    "homepage": "https://cloud.189.cn/",
+    "description": "天翼云盘是中国电信面向个人及家庭用户提供的云存储服务",
+    "version": "7.4.0",
+    "license": "https://e.dlife.cn/sdk/agreement/webShow.do?order=1&appKey=cloud",
+    "url": "https://download.cloud.189.cn/file/downloadFile.action?dlt=4&dt=1&expired=1951717355398&sk=297953828&ufi=924521286988726496&zyc=60&token=cloud4&sig=bhMHtg1pAEk9YyswEhsAYISJTmY%3D#/eCloud.7z",
+    "hash": "169c62ce7d9317abdb417cf63d19d902d6cc2ed93bad59f59bebb7ad93bda91e",
+    "shortcuts": [
+        [
+            "eCloud.exe",
+            "天翼云盘"
+        ]
+    ],
+    "persist": "data",
+    "post_install": [
+        "if (-not (Test-Path \"$Env:APPDATA\\ecloud\")) { ",
+        "  New-Item -ItemType Junction -Path \"$Env:APPDATA\\ecloud\" -Value \"$persist_dir\\data\" | Out-Null",
+        "}"
+    ],
+    "post_uninstall": "if ($purge -and (Test-Path \"$Env:APPDATA\\ecloud\")) { Remove-Item -Recurse -Force \"$Env:APPDATA\\ecloud\" }",
+    "checkver": {
+        "url": "https://cloud.189.cn/api/portal/getClientByType.action?clientType=TELEPC-newf",
+        "regex": "\"clientVersion\":\"(?<version>[\\d\\.]+)\",\"downloadUrl\":\"//download.cloud.189.cn/(?<file>.*)\",\"modifyDate"
+    },
+    "autoupdate": {
+        "url": "https://download.cloud.189.cn/$matchFile#/eCloud.7z"
+    }
+}

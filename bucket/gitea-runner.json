@@ -1,0 +1,25 @@
+{
+    "version": "6.0.0",
+    "homepage": "https://gitea.com/gitea/runner",
+    "license": {
+        "identifier": "MIT",
+        "url": "https://gitea.com/gitea/runner/raw/branch/main/LICENSE"
+    },
+    "url": "https://gitea.com/gitea/runner/releases/download/v6.0.0/gitea-runner-6.0.0-windows-amd64.exe.xz#/gitea-runner.exe.7z",
+    "hash": "acaad6f1b18547c983e3d168e8131e5ea61c21711c97eaf1b307b8d20cab1176",
+    "depends": "main/nssm",
+    "bin": "gitea-runner.exe",
+    "persist": "data",
+    "post_install": "gitea-runner --init --install",
+    "pre_uninstall": "gitea-runner --uninstall --verbose=on",
+    "checkver": {
+        "url": "https://gitea.com/gitea/runner/releases",
+        "regex": "releases/tag/v([\\d\\.]+)"
+    },
+    "autoupdate": {
+        "url": "https://gitea.com/gitea/runner/releases/download/v$version/gitea-runner-$version-windows-amd64.exe.xz#/gitea-runner.exe.7z",
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}
