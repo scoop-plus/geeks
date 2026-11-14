@@ -4,13 +4,13 @@
 #>
 param(
     [ValidateScript( {
-            if (!($_ -match '^(.*)\/(.*):(.*)$')) {
+            if ($_ -and !($_ -match '^[^/]+/[^/]+:[^:]+$')) {
                 throw 'Upstream must be in this format: <user>/<repo>:<branch>'
             }
             $true
         })]
-    [String] $Upstream = 'scoop-plus/geeks:main',
-    [String] $OriginBranch = 'main',
+    [String] $Upstream,
+    [String] $OriginBranch,
     [String] $App = '*',
     [String] $CommitMessageFormat = '<app>: Update to version <version>',
     [ValidateScript( {
@@ -69,6 +69,25 @@ if ($IsLinux -or $IsMacOS) {
     if (!(scoop which hub)) {
         Write-Host "Please install hub 'scoop install hub'" -ForegroundColor Yellow
         exit 1
+    }
+}
+
+if (!$OriginBranch) {
+    $currentBranch = (git branch --show-current 2>$null)
+    $OriginBranch = if ($currentBranch) { $currentBranch.Trim() } else { 'main' }
+}
+
+if ($Request -and !$Upstream) {
+    $remoteUrl = (git config --get remote.upstream.url 2>$null)
+    if (!$remoteUrl) {
+        $remoteUrl = (git config --get remote.origin.url 2>$null)
+    }
+
+    if ($remoteUrl -and ($remoteUrl -match '[:/]([^/:]+)/([^/:]+?)(?:\.git)?$')) {
+        $Upstream = "$($Matches[1])/$($Matches[2]):$OriginBranch"
+        Write-Host "Auto-detected upstream: $Upstream" -ForegroundColor DarkCyan
+    } else {
+        abort "Please specify -Upstream in format '<user>/<repo>:<branch>' when using -Request!"
     }
 }
 
